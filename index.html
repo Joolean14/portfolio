@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="julian-loaiza-botero---web-developer">Julian Loaiza Botero - Web Developer</h1>
+<p>Hi, I'm <strong>Julian</strong>! I'm a <strong>Web Developer</strong> with over <strong>4+ years</strong> of experience in the tech industry, primarily working as a freelancer. I've also collaborated with remote teams working in <strong>fintech</strong> by engaging with clients and meeting tight deadlines to deliver quality solutions. I feel most confident with <strong>Laravel</strong> full-stack development and <strong>Linux</strong> desktop environments.</p>
+<p>In my work experience, I have developed applications that enabled the clients to use technology to improve their business.</p>
+<p>I have a deep interest in audio technology. I'm currently on a self-study journey to learn audio digital signal processing (DSP) and C++ with the goal of developing audio plugins. This exploration into the technical side of music complements my practical experience as a musician.</p>
+<p>I started my professional life as a session musician, and over the past 15 years, I've had the privilege of touring internationally, composing scores for television, and arranging music for small horn and string ensembles. I've played multiple instruments—including bass, upright bass, piano, and guitar—on more than 50 recordings.</p>
+<p>Do I sound like a good fit for your team? Get in touch!</p>
+<p><strong>Email</strong>: <a href="mailto:julianloaizabotero@gmail.com">julianloaizabotero@gmail.com</a></p>
+<p><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/joolean14">jooelan14</a></p>
+<p><strong>Github</strong>: <a href="https://www.linkedin.com/in/joolean14">jooelan14</a></p>
+<h2 id="my-tech-stack">My Tech Stack</h2>
+<h3 id="programming-languages">Programming Languages</h3>
+<ul>
+<li>PHP</li>
+<li>Javascript</li>
+<li>Python</li>
+</ul>
+<h3 id="full-stack-frameworks">Full-Stack Frameworks</h3>
+<ul>
+<li>Laravel</li>
+</ul>
+<h3 id="frontend">Frontend</h3>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Bulma</li>
+<li>Bootstrap</li>
+<li>Hugo</li>
+</ul>
+<h3 id="databases">Databases</h3>
+<ul>
+<li>SQL</li>
+<li>MySQL</li>
+</ul>
+<h3 id="version-control-systems">Version Control Systems</h3>
+<ul>
+<li>Git</li>
+</ul>
+<h3 id="cms">CMS</h3>
+<ul>
+<li>WordPress</li>
+<li>Squarespace</li>
+</ul>
+<h3 id="linux">Linux</h3>
+<ul>
+<li>Bash</li>
+<li>Linux CLI</li>
+<li>Arch Linux (Manjaro)</li>
+<li>Ubuntu</li>
+<li>VIM</li>
+<li>SSH</li>
+</ul>
+<h3 id="math-and-data-visualization">Math and Data Visualization</h3>
+<ul>
+<li>Matplotlib</li>
+<li>Numpy</li>
+<li>LaTex</li>
+<li>Markdown</li>
+<li>Jupyter</li>
+</ul>
+<h3 id="deployment-platforms">Deployment Platforms</h3>
+<ul>
+<li>Github</li>
+<li>Gitlab</li>
+<li>Vercel</li>
+</ul>
+<h3 id="music-tech">Music Tech</h3>
+<ul>
+<li>Tone JS</li>
+<li>music-21</li>
+</ul>
+<hr>
+<h2 id="experience">EXPERIENCE</h2>
+<h3 id="falso-%C3%ADdolo---web-developer-and-musician">Falso Ídolo - Web Developer and Musician</h3>
+<p><strong>August 2023 - Present</strong></p>
+<ul>
+<li>Developed Wordpress sites and landing pages for the record label’s bands.</li>
+<li>Developed a simple mailer MVP to avoid high email marketing costs using Laravel, MySQL, and Amazon SES.</li>
+<li>Bass player at Z Bar.</li>
+<li>Transcribing and arranging for 9-piece bands.</li>
+</ul>
+<hr>
+<h3 id="freelance-web-developer">Freelance Web Developer</h3>
+<p><strong>June 2022 - July 2023</strong></p>
+<ul>
+<li>Development and web admin of custom websites for brands, using HTML, CSS, Bootstrap, and Github Pages for:
+<ul>
+<li>solovalencia.com.co</li>
+<li>mtband.co</li>
+<li>dariothehost.com</li>
+<li>falsoidolo.com</li>
+<li>evlikespizza.com</li>
+</ul>
+</li>
+<li>Squarespace admin for comunycorriente.org.</li>
+<li>Developer for audio programming blog developed with Hugo.</li>
+</ul>
+<hr>
+<h3 id="veritran---implementation-consultant">Veritran - Implementation Consultant</h3>
+<p><strong>May 26, 2021 - June 2022</strong></p>
+<ul>
+<li>Development of banking applications with proprietary low code framework in an agile environment with constant communication with Caja Popular Mexicana (client) discussing features.</li>
+<li>Debugged dynamic rendered data errors consuming REST APIs and checking logs via SSH under tight deadlines.</li>
+<li>Developed views with HTML-like components and CSS from professional designs in Invision.</li>
+<li>Wrote a node.js script to check the response time of a partner's API every 5 minutes and write them to a file, saving the team hours of weekly meetings.</li>
+<li>Wrote bash script to help the team speed up debugging large log files via SSH.</li>
+<li>Wrote PowerShell script to upload files to server, avoiding the use of Windows File Explorer's GUI, which performed 5x times slower.</li>
+<li>Wrote Python script to read the XML output of the company's proprietary software and extract important information automatically, avoiding spending hours opening 1 screen at a time.</li>
+<li>Organized and improved commonly run bash commands in aliases and scripts on the team's server to improve development speed.</li>
+</ul>
+<hr>
+<h3 id="bsw-digital---frontend-developer">BSW Digital - Frontend Developer</h3>
+<p><strong>March 2021 - April 2021</strong></p>
+<ul>
+<li>Vue JS developer for ap3carnes.com.</li>
+<li>Wordpress and Mailchimp admin for tcc.com.co.</li>
+</ul>
+<hr>
+<h3 id="session-musician">Session Musician</h3>
+<p><strong>2012 - Present</strong></p>
+<ul>
+<li>50+ Tracks as sideman for a variety of artists.</li>
+<li>Scoring for Teleantioquia: ExorcizArte Pablo.</li>
+<li>Sideman in the documentaries Smiling Lombana and Serenata a Gardel.</li>
+<li>Metropolizón Spain Tour, Chalupa Travel Cuba Tour, Hombre Memoria Mexico Tour, Chalupa Travel Mexico Tour, and Solo Valencia Mexico Vive Latino.</li>
+<li>Private bilingual instructor: piano, guitar, electric bass, upright bass, ukulele, and music theory.</li>
+</ul>
+<hr>
+
+</body>
+</html>
